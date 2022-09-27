@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './Counter.module.css';
-import {UniversalButton} from "../button/UniversalButton";
 
 type CounterPropsType = {
     count: number
@@ -10,11 +9,11 @@ type CounterPropsType = {
 
 export const Counter = (props: CounterPropsType) => {
 
-    const onClickINC = ()=>{
+    const onClickINC = () => {
         props.onClickINC()
     }
 
-    const onClickRESET = ()=>{
+    const onClickRESET = () => {
         props.onClickRESET()
     }
 
@@ -26,14 +25,15 @@ export const Counter = (props: CounterPropsType) => {
                 </div>
             </div>
             <div className={style.buttons_container}>
-                <UniversalButton
-                    name={'inc'}
-                    callBack={onClickINC}
-                />
-                <UniversalButton
-                    name={'reset'}
-                    callBack={onClickRESET}
-                />
+                {/*<button onClick={onClickINC} disabled={props.count === 5}>INCREM</button>*/}
+                <button
+                    onClick={onClickINC}
+                    className={style.inc_button}>inc
+                </button>
+                <button
+                    onClick={onClickRESET}
+                    className={style.reset_button}>reset
+                </button>
             </div>
         </div>
     );

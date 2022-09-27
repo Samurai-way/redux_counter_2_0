@@ -29,9 +29,7 @@
     width: 270px;
     height: 30px;
     font-size: 20px;
-    /*border: 2px solid;*/
     font-family: "Droid Sans Mono Dotted";
-
 }
 
 .start {
@@ -39,7 +37,6 @@
     width: 270px;
     height: 30px;
     font-size: 20px;
-    /*border: 2px solid;*/
     font-family: "Droid Sans Mono Dotted";
 }
 
@@ -47,11 +44,38 @@
     width: 90%;
     height: 70px;
     background-color: rgba(251, 178, 178, 0.89);
-    /*margin: 50px;*/
     border-radius: 10px;
     border: 5px solid rgb(56, 118, 144);
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
 
+.set{
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    background-color: rgba(8, 230, 237, 0.44);
+    font-family: sans-serif;
+}
+
+.max_value_input{
+    width: 50%;
+    margin-left: 30px;
+    border-radius: 5px;
+    background-color: #95d7f1;
+    font-size: 20px;
+    border: 2px solid rgba(148, 145, 146, 0.7);
+    font-family: "Droid Sans Mono Dotted";
+}
+
+.start_value_input{
+    width: 50%;
+    margin-left: 30px;
+    border-radius: 5px;
+    background-color: #95d7f1;
+    font-size: 20px;
+    border: 2px solid rgba(148, 145, 146, 0.7);
+    font-family: "Droid Sans Mono Dotted";
 }
