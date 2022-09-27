@@ -2,7 +2,7 @@ import React, {ChangeEvent, useState} from 'react';
 import style from './Counter_Setting.module.css';
 
 type CounterSettingProps = {
-    onChangeSetValue: (value: number) => void
+    onChangeSetStartValue: (value: number) => void
     onChangeSetMaxValue: (value: number) => void
 }
 
@@ -11,14 +11,15 @@ export const CounterSetting = (props: CounterSettingProps) => {
     const [maxValue, setMaxValue] = useState(0);
     const [startValue, setStartValue] = useState(0);
 
-    const onClickMaxButton = () => {
-        console.log(startValue)
-        props.onChangeSetValue(startValue)
-    }
+    // const onClickMaxButton = () => {
+    //     console.log(maxValue)
+    //     props.onChangeSetMaxValue(startValue)
+    // }
 
     const onClickStartButton = () => {
-        console.log(startValue)
-        props.onChangeSetValue(startValue)
+        props.onChangeSetMaxValue(maxValue)
+        props.onChangeSetStartValue(startValue)
+
     }
 
     const changeMax = (e: ChangeEvent<HTMLInputElement>) => {
@@ -38,6 +39,8 @@ export const CounterSetting = (props: CounterSettingProps) => {
                     className={style.max}>
                     max value:<input
                     type={'number'}
+                    value={maxValue}
+                    onChange={changeMax}
                     className={style.max_value_input}/>
                 </div>
                 <div
