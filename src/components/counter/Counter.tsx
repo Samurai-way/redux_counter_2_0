@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Counter.module.css';
 
 type CounterPropsType = {
+    maxValue: number // ?
     count: number
     onClickINC: () => void
     onClickRESET: () => void
@@ -27,6 +28,7 @@ export const Counter = (props: CounterPropsType) => {
             <div className={style.buttons_container}>
                 {/*<button onClick={onClickINC} disabled={props.count === 5}>INCREM</button>*/}
                 <button
+                    disabled={props.maxValue === props.count}
                     onClick={onClickINC}
                     className={style.inc_button}>inc
                 </button>

@@ -24,7 +24,7 @@ function App() {
         dispatch(decrementAC(0))
     }
 
-    const onChangeSetMaxValue = (number:number) => {
+    const onChangeSetMaxValue = (number: number) => {
         dispatch(maxValueAC(number))
     }
 
@@ -38,9 +38,11 @@ function App() {
                 onChangeSetMaxValue={onChangeSetMaxValue}
                 onChangeSetStartValue={onChangeSetStartValue}
             />
-            <Counter count={count}
-                     onClickINC={onClickINC}
-                     onClickRESET={onClickRESET}
+            <Counter
+                maxValue={maxValue} // ?
+                count={count}
+                onClickINC={onClickINC}
+                onClickRESET={onClickRESET}
             />
         </div>
     );
