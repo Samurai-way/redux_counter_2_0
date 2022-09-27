@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.module.css';
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootState} from "./redux/store.";
+import {decrementAC, incrementAC} from "./redux/counterReducer";
+import {Counter} from "./components/counter/Counter";
+import style from './App.module.css';
+import {type} from "os";
+import {CounterSetting} from "./components/counter_setting/Counter_Setting";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const minValue = useSelector<AppRootState, number>(state => state.counterReducer.minValue)
+    const maxValue = useSelector<AppRootState, number>(state => state.counterReducer.maxValue)
+
+    const count = useSelector<AppRootState, number>(state => state.counterReducer.count)
+
+    const dispatch = useDispatch()
+
+
+    const onClickINC = () => {
+        dispatch(incrementAC(0))
+    }
+
+    const onClickRESET = () => {
+        dispatch(decrementAC(0))
+    }
+
+
+    return (
+        <div className={style.wrapper}>
+            <CounterSetting/>
+            <Counter count={count}
+                     onClickINC={onClickINC}
+                     onClickRESET={onClickRESET}
+            />
+        </div>
+    );
 }
 
 export default App;

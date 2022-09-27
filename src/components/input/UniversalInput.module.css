@@ -1,0 +1,9 @@
+.input{
+    width: 50%;
+    margin-left: 30px;
+    border-radius: 5px;
+    background-color: #95d7f1;
+    font-size: 20px;
+    border: 2px solid rgba(148, 145, 146, 0.7);
+    font-family: "Droid Sans Mono Dotted";
+}

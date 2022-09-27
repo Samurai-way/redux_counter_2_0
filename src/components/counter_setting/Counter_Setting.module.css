@@ -1,0 +1,57 @@
+.wrapper {
+    width: 350px;
+    height: 250px;
+    background-color: rgba(163, 255, 217, 0.89);
+    margin: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border: 5px dashed rgba(2, 76, 134, 0.74);
+}
+
+.values_container {
+    width: 90%;
+    height: 150px;
+    background-color: rgba(251, 178, 178, 0.89);
+    border-radius: 10px;
+    border: 5px solid rgb(56, 118, 144);
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-direction: column;
+
+}
+
+.max {
+    margin: 10px;
+    width: 270px;
+    height: 30px;
+    font-size: 20px;
+    /*border: 2px solid;*/
+    font-family: "Droid Sans Mono Dotted";
+
+}
+
+.start {
+    margin: 10px;
+    width: 270px;
+    height: 30px;
+    font-size: 20px;
+    /*border: 2px solid;*/
+    font-family: "Droid Sans Mono Dotted";
+}
+
+.buttons_container {
+    width: 90%;
+    height: 70px;
+    background-color: rgba(251, 178, 178, 0.89);
+    /*margin: 50px;*/
+    border-radius: 10px;
+    border: 5px solid rgb(56, 118, 144);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
