@@ -4,21 +4,22 @@ import style from './Counter_Setting.module.css';
 type CounterSettingProps = {
     onChangeSetStartValue: (value: number) => void
     onChangeSetMaxValue: (value: number) => void
+    maxValue: number // ?
+    count: number
 }
 
-export const CounterSetting = (props: CounterSettingProps) => {
+export const CounterSetting = ({onChangeSetStartValue,
+                                   onChangeSetMaxValue,
+                                   ...props}: CounterSettingProps) => {
 
     const [maxValue, setMaxValue] = useState(0);
     const [startValue, setStartValue] = useState(0);
 
-    // const onClickMaxButton = () => {
-    //     console.log(maxValue)
-    //     props.onChangeSetMaxValue(startValue)
-    // }
+
 
     const onClickStartButton = () => {
-        props.onChangeSetMaxValue(maxValue)
-        props.onChangeSetStartValue(startValue)
+        onChangeSetMaxValue(maxValue)
+        onChangeSetStartValue(startValue)
 
     }
 
@@ -54,6 +55,7 @@ export const CounterSetting = (props: CounterSettingProps) => {
             </div>
             <div className={style.buttons_container}>
                 <button
+                    disabled={props.count === props.maxValue}
                     className={style.set}
                     onClick={onClickStartButton}>set
                 </button>

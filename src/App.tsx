@@ -35,6 +35,8 @@ function App() {
     return (
         <div className={style.wrapper}>
             <CounterSetting
+                maxValue={maxValue} // ?
+                count={count}
                 onChangeSetMaxValue={onChangeSetMaxValue}
                 onChangeSetStartValue={onChangeSetStartValue}
             />
