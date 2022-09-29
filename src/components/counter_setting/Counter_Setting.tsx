@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import style from './Counter_Setting.module.css';
+import {Error} from "../errors/Error";
 
 type CounterSettingProps = {
     onChangeSetStartValue: (value: number) => void
@@ -15,12 +16,12 @@ export const CounterSetting = ({onChangeSetStartValue,
     const [maxValue, setMaxValue] = useState(0);
     const [startValue, setStartValue] = useState(0);
 
-
+    console.log(props.maxValue)
 
     const onClickStartButton = () => {
-        onChangeSetMaxValue(maxValue)
-        onChangeSetStartValue(startValue)
 
+        onChangeSetStartValue(+startValue)
+        onChangeSetMaxValue(+maxValue)
     }
 
     const changeMax = (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +56,7 @@ export const CounterSetting = ({onChangeSetStartValue,
             </div>
             <div className={style.buttons_container}>
                 <button
-                    disabled={props.count === props.maxValue}
+                    disabled={startValue < 0 ? true : undefined}
                     className={style.set}
                     onClick={onClickStartButton}>set
                 </button>
