@@ -4,10 +4,8 @@
     padding: 0;
 }
 
-.wrapper {
+.wrapper{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 200px;
+    justify-content: space-evenly;
+    margin-top: 200px;
 }
-

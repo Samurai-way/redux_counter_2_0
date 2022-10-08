@@ -1,50 +1,53 @@
 import React from 'react';
 import './App.module.css';
+import style from './App.module.css';
+import {Counter} from "./components/Counter";
+import {Setting} from "./components/Setting";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootState} from "./redux/store.";
-import {decrementAC, incrementAC, maxValueAC, startValueAC} from "./redux/counterReducer";
-import {Counter} from "./components/counter/Counter";
-import style from './App.module.css';
-import {CounterSetting} from "./components/counter_setting/Counter_Setting";
+import {incrementAC, resetAC, setMaxValueAC, setStartValueAC, toggleErrorAC} from "./redux/counterReducer";
 
 function App() {
 
-    const startValue = useSelector<AppRootState, number>(state => state.counterReducer.startValue)
-    const maxValue = useSelector<AppRootState, number>(state => state.counterReducer.maxValue)
-
-
     const count = useSelector<AppRootState, number>(state => state.counterReducer.count)
+    const maxValue = useSelector<AppRootState, number>(state => state.counterReducer.maxValue)
+    const error = useSelector<AppRootState, boolean>(state => state.counterReducer.error)
+
     const dispatch = useDispatch()
 
-    const onClickINC = () => {
-        dispatch(incrementAC(0))
+    const increment = () => {
+        dispatch(incrementAC(count))
     }
 
-    const onClickRESET = () => {
-        dispatch(decrementAC(0))
+    const reset = () => {
+        dispatch(resetAC(count))
     }
 
-    const onChangeSetMaxValue = (number: number) => {
-        dispatch(maxValueAC(number))
+    const setStartValue = (start: number) => {
+        dispatch(setStartValueAC(start))
     }
 
-    const onChangeSetStartValue = (number: number) => {
-        dispatch(startValueAC(number))
+    const setMaxValue = (max: number) => {
+        dispatch(setMaxValueAC(max))
+    }
+
+    const toggleError = (error: boolean) => {
+        dispatch(toggleErrorAC(error))
     }
 
     return (
         <div className={style.wrapper}>
-            <CounterSetting
-                maxValue={maxValue} // ?
-                count={count}
-                onChangeSetMaxValue={onChangeSetMaxValue}
-                onChangeSetStartValue={onChangeSetStartValue}
-            />
             <Counter
-                maxValue={maxValue} // ?
                 count={count}
-                onClickINC={onClickINC}
-                onClickRESET={onClickRESET}
+                increment={increment}
+                reset={reset}
+                maxValue={maxValue}
+                error={error}
+            />
+            <Setting
+                setStartValue={setStartValue}
+                setMaxValue={setMaxValue}
+                toggleError={toggleError}
             />
         </div>
     );
