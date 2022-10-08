@@ -48,6 +48,7 @@ function App() {
                 setStartValue={setStartValue}
                 setMaxValue={setMaxValue}
                 toggleError={toggleError}
+                
             />
         </div>
     );

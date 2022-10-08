@@ -13,17 +13,21 @@ type SettingPropsType = {
 
 export const Setting = (props: SettingPropsType) => {
 
-
-
     const [max, setMax]=useState(0)
     const [start, setStart]=useState(0)
 
     const redStyle = max < 0 || start < 0 ? style : undefined
+    const disabled = max < 0 || start < 0 || max === start || start > max
 
     const setHandler = () => {
         props.setStartValue(start)
         props.setMaxValue(max)
-        props.toggleError(max === start || start > max)
+    }
+
+    if(max < 0 || start < 0 || max === start || start > max){
+        props.toggleError(true)
+    } else {
+        props.toggleError(false)
     }
 
     const startValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +57,7 @@ export const Setting = (props: SettingPropsType) => {
             </div>
             <div className={s.button_wrapper}>
                 <button
-                    disabled={max < 0 || start < 0}
+                    disabled={disabled}
                     className={s.set}
                     onClick={setHandler}
                 >SET</button>
